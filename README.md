@@ -2,6 +2,7 @@
 1) create a repo for node
 2) clone repo & change config file tokens
 
+#  NPM & Express setup
 3) open->cmd-> run-> npm init (it will generate package.json)
 4) create index.js file
 5) inside the index.js insert a code
@@ -29,6 +30,8 @@ src:https://expressjs.com/en/starter/hello-world.html <br>
 ```
 8)run->npm start (or) node index<br>
 9)open->browser->run->http://localhost:8080/        <br><br>
+
+ # GET method setup
 10)change get method in index.js as below
 ```
 app.get('/getAllUsers', (req, res) => {
@@ -53,7 +56,9 @@ fetch('http://localhost:8080/getAllUsers')
 ```
 {"status":"success","users":[{"name":"madhu","age":20}]}
 ```
-<br><br>Note:
+<br><br>
+# Let To Know 
+Note:
 ```
 Data transfer between ui and server is "string". 
 
@@ -65,7 +70,9 @@ RESPONSE FROM -> Server -> UI
 ```
   
 Let see body-parser in detail below:
-<br>14)create post method as below
+
+# POST method setup
+14)create post method as below
 ```
 app.post('/addUser', (req, res) => {
     var response = { status: "success", users: req.body, message: "user insert success" }
@@ -120,6 +127,6 @@ app.post('/addUser', (req, res) => {
  
  ```
  mongodb+srv://madhu:<password>@cluster0.ybquw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
- 
+
  ```
- replace actual password & your database name (or) you can use the same "myFirstDatabase" from the URI
+ =>replace actual password & your database name (or) you can use the same "myFirstDatabase" from the URI
