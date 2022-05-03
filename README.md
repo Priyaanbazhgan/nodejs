@@ -263,7 +263,8 @@ fetch("http://localhost:8080/kncet/addStudent", {
 
 ```
 5)Check in your MongoDB cluster ,
-click->browse collection->inside student table(  //img )
+click->browse collection->inside student table (ref:image)
+<img src="https://github.com/Priyaanbazhgan/nodejs/blob/main/screenshot/Screenshot%20(279).png?raw=true" style="height: 600x; max-width: 100%;">
 
 ## Read records from DB
 
