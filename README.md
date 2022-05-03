@@ -138,14 +138,14 @@ app.post('/addUser', (req, res) => {
 
 # MongoDB setup
 
-1)run->npm i mongoose 
+1)run->npm i mongoose <br>
 2) create dbconnection.js file & add code below 
 ```
 const mongoose = require('mongoose');
 
 function connectdb() {
     // Database connection
-    mongoose.connect('mongodb+srv://madhu:findme123@cluster0.ybquw.mongodb.net/yourDatabaseName?retryWrites=true&w=majority', {
+    mongoose.connect('mongodb+srv://madhu:findme123@cluster0.ybquw.mongodb.net/kncet?retryWrites=true&w=majority', {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }, (err) => {
@@ -160,7 +160,7 @@ function connectdb() {
 
 module.exports = connectdb
 ```
-=>replace connection string & database name accordingly <br>
+=>replace connection string & database name accordingly (here kncet is my DB name) <br>
 src:https://www.geeksforgeeks.org/mongoose-find-function/#:~:text=The%20find()%20function%20is,limit%2C%20skip%2C%20etc
 
 3)add required changes in index.js as below
@@ -178,6 +178,30 @@ Example app listening on port 8080
 mongodb connection succesful
 
 ```
+
+# MongoDB Table (or) Model creation
+
+1)create folder->model <br>
+2)create file->student.js inside the folder model <br>
+3)add changes in student.js  as below
+```
+const mongoose = require('mongoose');
+
+// Creating table / modal
+// "Student"->table name
+// {name,age,...}-> column name/schema
+const Student = mongoose.model('Student', {
+    name: { type: String },
+    age: { type: Number },
+    college: { type: String },
+    place: { type: String },
+    CGPA: { type: Number }
+});
+
+module.exports = Student
+
+```
+
 
 
 
