@@ -85,6 +85,21 @@ app.post('/addUser', (req, res) => {
  app.use(bodyParser.json())
  ```
 
+ <br><br>
+ #MongoDB setup
+ 1)create cluster using below link
+ ```
+ https://www.freecodecamp.org/news/get-started-with-mongodb-atlas/
+ ```
+ 2)at the last you get mongoDB connection URI like below
+ ```
+ mongodb+srv://madhu:<password>@cluster0.ybquw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+ ```
+ replace actual password & your database name (or) you can use the same "myFirstDatabase" from the URI
+
+ <br>
+ 
+
  17)open browser & run the console as below
  ```
  fetch("http://localhost:8080/addUser", { 
