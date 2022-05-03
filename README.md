@@ -19,7 +19,7 @@
        })
 ```
 src:https://expressjs.com/en/starter/hello-world.html <br>
-6) run->npm i express 
+6) run->npm i express <br>
 7)go to package.json & add "start":"node index" in script block
 ```
 "scripts": {
@@ -27,5 +27,5 @@ src:https://expressjs.com/en/starter/hello-world.html <br>
     "start":"node index"
   }
 ```
-8)run->npm start (or) node index
+8)run->npm start (or) node index<br>
 9)open->browser->run->http://localhost:8080/
