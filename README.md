@@ -74,7 +74,7 @@ app.post('/addUser', (req, res) => {
 })
 ```
 
-15)run->npm i body-parser
+15)run->npm i body-parser <br>
 16)go to index.js & add require changes for body-parser
  ```
  const bodyParser = require('body-parser')
