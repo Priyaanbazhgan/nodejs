@@ -202,6 +202,115 @@ module.exports = Student
 
 ```
 
+# CURD operation 
+1)create folder->service<br>
+2)create file->studentservice.js in folder service<br>
+## Create record / insert record in DB
+
+1)Add require changes in studentservice.js as below
+```
+const StudentTable = require('../model/student')
+
+function addStudent(param) {
+    const { name, age, college, place, CGPA } = param;//object destruction
+    // Insert in db
+    const insertObj = { name, age, college, place, CGPA };//object creation
+    const insertInstance = new StudentTable(insertObj);
+    return insertInstance.save();
+}
+
+module.exports = { addStudent }
+
+```
+2)add post method for inserting student record in index.js
+```
+const studentservice = require('./service/studentservice')
+...
+...
+app.post('/kncet/addStudent', (req, res) => {
+    studentservice.addStudent(req.body)
+        .then(() => {
+            res.send(JSON.stringify({ status: "success", message: "Student insert Success" }));
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send(JSON.stringify({ status: "Failed to insert Student" }));
+        });
+})
+
+```
+3)open browser console & try fetch method
+```
+fetch("http://localhost:8080/kncet/addStudent", { 
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",//to helps body-parser package to convert--> json stringfyied object in body again to actual object (using parse) 
+  },
+  body: JSON.stringify({ name:'madhu', age:20, college:"kncet", place:"Kulithalai", CGPA:8.67  }), // pass user data
+})
+  .then((res) => res.json())
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+  ```
+4)observe the output in console
+```
+{"status":"success","message":"Student insert Success"}
+
+```
+5)Check in your MongoDB cluster ,
+click->browse collection->inside student table(  //img )
+
+## Read records from DB
+
+1)Do require changes in studentservice.js
+```
+function getAllStudents() {
+    // select in db
+    return StudentTable.find({});
+}
+
+module.exports = { addStudent, getAllStudents }
+
+```
+
+2)add get method for fetch students in index.js
+```
+app.get('/kncet/getAllStudents', (req, res) => {
+    studentservice.getAllStudents()
+        .then((list) => {
+            res.send(JSON.stringify({ status: "success", list }));
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send(JSON.stringify({ status: "Failed to fetch Students" }));
+        });
+})
+
+```
+3)In browser console try fetch
+```
+fetch('http://localhost:8080/kncet/getAllStudents')
+.then((res)=> res.json())
+.then(res =>{
+    console.log(res);
+}).catch(err =>{
+    console.log(err)   
+});
+
+```
+
+4)Observe the result in browser console
+```
+{"status":"success","list":[{"_id":"627141643aefe5b25809b8ca","name":"madhu","age":20,"college":"kncet","place":"Kulithalai","CGPA":8.67,"__v":0}]}
+
+```
+
+
 
 
 
