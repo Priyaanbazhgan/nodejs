@@ -18,8 +18,8 @@
        console.log(`Example app listening on port ${port}`)
        })
 ```
-src:https://expressjs.com/en/starter/hello-world.html
-\6) run->npm i express 
+src:https://expressjs.com/en/starter/hello-world.html <br>
+6) run->npm i express 
 7)go to package.json & add "start":"node index" in script block
 ```
 "scripts": {
