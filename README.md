@@ -28,7 +28,12 @@ src:https://expressjs.com/en/starter/hello-world.html <br>
     "start":"node index"
   }
 ```
-8)run->npm start (or) node index<br>
+8)run->npm start (or) node index & observe the changes in cmd console
+```
+Example app listening on port 8080
+
+```
+
 9)open->browser->run->http://localhost:8080/        <br><br>
 
  # GET method setup
@@ -116,7 +121,7 @@ app.post('/addUser', (req, res) => {
   ```
 
 <br><br>
- # MongoDB setup
+ # MongoDB Cluster Creation
  <br>
  1)create cluster using below link
  <br>
@@ -130,3 +135,49 @@ app.post('/addUser', (req, res) => {
 
  ```
  =>replace actual password & your database name (or) you can use the same "myFirstDatabase" from the URI
+
+# MongoDB setup
+
+1)run->npm i mongoose 
+2) create dbconnection.js file & add code below 
+```
+const mongoose = require('mongoose');
+
+function connectdb() {
+    // Database connection
+    mongoose.connect('mongodb+srv://madhu:findme123@cluster0.ybquw.mongodb.net/yourDatabaseName?retryWrites=true&w=majority', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }, (err) => {
+        if (!err) {
+            console.log("mongodb connection succesful")
+        }
+        else {
+            console.log("mongodb connection failed", err)
+        }
+    });
+}
+
+module.exports = connectdb
+```
+=>replace connection string & database name accordingly <br>
+src:https://www.geeksforgeeks.org/mongoose-find-function/#:~:text=The%20find()%20function%20is,limit%2C%20skip%2C%20etc
+
+3)add required changes in index.js as below
+```
+const dbconnection=require('./dbconnection')
+...
+...
+//initializing db connectivity
+dbconnection();
+
+```
+4)restart node service & observe the below changes in cmd console
+```
+Example app listening on port 8080
+mongodb connection succesful
+
+```
+
+
+

@@ -1,7 +1,11 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const dbconnection=require('./dbconnection')
 const app = express()
 const port = 8080
+
+//initializing db connectivity
+dbconnection();
 
 // parse content-type : application/json from request header
 // it helps to convert string from UI request body to actual object
