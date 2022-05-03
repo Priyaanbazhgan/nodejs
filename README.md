@@ -28,4 +28,25 @@ src:https://expressjs.com/en/starter/hello-world.html <br>
   }
 ```
 8)run->npm start (or) node index<br>
-9)open->browser->run->http://localhost:8080/
+9)open->browser->run->http://localhost:8080/        <br><br>
+10)change get method in index.js as below
+```
+app.get('/getAllUsers', (req, res) => {
+    var users = [{ name: "madhu", age: 20 }];
+    var response = { status: "success", users }
+    res.send(JSON.stringify(response));//data transfer b/w client& server is only a string.
+    //That's why JSON.stringify is used.
+})
+```
+11)open->browser->run->http://localhost:8080/getAllUsers        <br><br>
+12)open console in curren browser & run below fetch method
+```
+fetch('http://localhost:8080/getAllUsers')
+.then((res)=> res.json())
+.then(res =>{
+    console.log(res);
+}).catch(err =>{
+    console.log(err)   
+});
+```
+13)observe the console log
