@@ -113,9 +113,11 @@ app.post('/addUser', (req, res) => {
  <br>
  1)create cluster using below link
  ```
- https://www.freecodecamp.org/news/get-started-with-mongodb-atlas/
+ https://www.freecodecamp.org/news/get-started-with-mongodb-atlas/<br>
+
  ```
- 2)at the last you get mongoDB connection URI like below
+ <br>2)at the last you get mongoDB connection URI like below
+ 
  ```
  mongodb+srv://madhu:<password>@cluster0.ybquw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
  ```
